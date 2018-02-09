@@ -1,25 +1,19 @@
-//
-//  ViewController.swift
-//  fizzbuzz-ui
-//
-//  Created by Prayoch Rujira on 10/2/2561 BE.
-//  Copyright © 2561 Prayoch Rujira. All rights reserved.
-//
-
 import UIKit
 
 class ViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+    @IBOutlet weak var numberInput: UITextField!
+    @IBOutlet weak var fizzBuzzLabel: UILabel!
+    
+    private var fizzBuzz = FizzBuzz()
+
+    @IBAction func onSayButtonClicked(_ sender: Any) {
+        
+        guard let input = Int(numberInput.text!) else {
+            return
+        }
+        fizzBuzzLabel.text = fizzBuzz.say(number: input)
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-
+    
 }
 
